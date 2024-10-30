@@ -1,0 +1,28 @@
+{
+    "name": "medab123/lark-suit-php-sdk",
+    "description": "A PHP sdk for Larksuit.",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Mohammed Elabidi",
+            "email": "mohammed.elabidi@protonmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0 || ^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Larksuit\\SDK\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Larksuit\\SDK\\LarksuitServiceProvider"
+            ]
+        }
+    }
+}
