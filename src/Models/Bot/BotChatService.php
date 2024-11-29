@@ -14,6 +14,8 @@ class BotChatService
     private string $receiveIdType;
     protected string $receiveId;
     protected string $appEnv;
+    protected string $appName;
+
 
     public function __construct(LarkService $larkService, string $receiveIdType, string $receiveId)
     {
@@ -21,6 +23,7 @@ class BotChatService
         $this->receiveIdType = $receiveIdType;
         $this->receiveId = $receiveId;
         $this->appEnv = env('APP_ENV');
+        $this->appName = env('APP_NAME');
 
     }
 
@@ -29,7 +32,7 @@ class BotChatService
      */
     public function sendErrorNotification(string $type,string $message, ?Exception $exception = null): array
     {
-        $title = "Inventory Notification | {$this->appEnv} | $type | Error";
+        $title = "{$this->appName} Notification | {$this->appEnv} | $type | Error";
         $content = $this->formatMessage('Error Message: ', $message);
 
         if ($exception) {
@@ -44,7 +47,7 @@ class BotChatService
      */
     public function sendWarningNotification(string $type,string $message, ?array $context = []): array
     {
-        $title = "Inventory Notification | {$this->appEnv} | $type | Warning";
+        $title = "{$this->appName} Notification | {$this->appEnv} | $type | Warning";
         $content = $this->formatMessage('Warning Message: ', $message);
 
         if (!empty($context)) {
@@ -59,7 +62,7 @@ class BotChatService
      */
     public function sendInfoNotification(string $type,string $message, ?array $context = []): array
     {
-        $title = "Inventory Notification | {$this->appEnv} | $type | Info";
+        $title = "{$this->appName} Notification | {$this->appEnv} | $type | Info";
 
         $content = $this->formatMessage('Info Message: ', $message);
 
