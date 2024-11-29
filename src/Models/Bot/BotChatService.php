@@ -23,7 +23,7 @@ class BotChatService
         $this->receiveIdType = $receiveIdType;
         $this->receiveId = $receiveId;
         $this->appEnv = env('APP_ENV');
-        $this->appName = env('APP_NAME');
+        $this->appName = ucfirst(env('APP_NAME'));
 
     }
 
