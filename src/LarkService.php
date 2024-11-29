@@ -69,7 +69,7 @@ class LarkService
     public function authenticate(): void
     {
         // Retrieve the token from cache or request a new one
-        $token = cache()->remember('lark_service_tenant_token', now()->addHours(2), function () {
+        $token = cache()->remember('lark_service_tenant_token', now()->addHours(1), function () {
             return $this->getTokenFromLark();
         });
 
