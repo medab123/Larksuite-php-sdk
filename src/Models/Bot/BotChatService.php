@@ -120,7 +120,7 @@ class BotChatService
     /**
      * Sends a post message to Lark and logs any errors encountered.
      */
-    private function sendPost(string $title, array $content): array
+    public function sendPost(string $title, array $content): array
     {
         $uri = $this->larkService->buildUrl($this->apiUrls, 'send-message', ['receive_id_type' => $this->receiveIdType]);
         $messagePayload = [
