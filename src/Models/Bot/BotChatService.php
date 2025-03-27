@@ -22,8 +22,8 @@ class BotChatService
         $this->larkService = $larkService;
         $this->receiveIdType = $receiveIdType;
         $this->receiveId = $receiveId;
-        $this->appEnv = env('APP_ENV');
-        $this->appName = ucfirst(env('APP_NAME'));
+        $this->appEnv = env('APP_ENV', config('larksuit.app_env', 'local'));
+        $this->appName = ucfirst(env('APP_NAME', config('larksuit.app_name', 'larksuit')));
 
     }
 
